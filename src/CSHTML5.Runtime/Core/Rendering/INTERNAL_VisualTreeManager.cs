@@ -683,15 +683,16 @@ namespace CSHTML5.Internal
             Performance.Counter("VisualTreeManager: Handle binding", t9);
 #endif
 
-            //--------------------------------------------------------
-            // HANDLE TABINDEX:
-            //--------------------------------------------------------
+//--------------------------------------------------------
+// HANDLE TABINDEX:
+//--------------------------------------------------------
 
-            // For GotFocus and LostFocus to work, the DIV specified by "INTERNAL_OptionalSpecifyDomElementConcernedByFocus"
-            // (or the OuterDomElement otherwise) needs to have the "tabIndex" attribute set. Therefore we need to always set
-            // it (unless IsTabStop is False) to its current value (default is Int32.MaxValue). At the time when this code was
-            // written, there was no way to automatically call the "OnChanged" on a dependency property if no value was set.
+// For GotFocus and LostFocus to work, the DIV specified by "INTERNAL_OptionalSpecifyDomElementConcernedByFocus"
+// (or the OuterDomElement otherwise) needs to have the "tabIndex" attribute set. Therefore we need to always set
+// it (unless IsTabStop is False) to its current value (default is Int32.MaxValue). At the time when this code was
+// written, there was no way to automatically call the "OnChanged" on a dependency property if no value was set.
 
+#if !REWORKLOADED
             // IMPORTANT: This needs to be done AFTER the "OnApplyTemplate" (for example, the TextBox sets the "INTERNAL_OptionalSpecifyDomElementConcernedByFocus" in the "OnApplyTemplate").
             if (isChildAControl)
             {
@@ -700,7 +701,7 @@ namespace CSHTML5.Internal
                     Control.TabIndexProperty_MethodToUpdateDom(child, ((Control)child).TabIndex);
                 }
             }
-
+#endif
 
             //--------------------------------------------------------
             // RAISE THE "SIZECHANGED" EVENT:
@@ -979,8 +980,11 @@ namespace CSHTML5.Internal
             while (this.visualElements.Count > 0)
             {
                 UIElement uiE = this.visualElements.Dequeue();
-                uiE.INTERNAL_OnVisualParentChanged();
-                uiE.StartManagingPointerPositionForPointerExitedEventIfNeeded();
+                if (uiE._isLoaded)
+                {
+                    uiE.INTERNAL_OnVisualParentChanged();
+                    uiE.StartManagingPointerPositionForPointerExitedEventIfNeeded();
+                }
             }
             this.Root = null;
         }

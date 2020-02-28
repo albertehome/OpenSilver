@@ -230,6 +230,13 @@ namespace Windows.UI.Xaml.Controls
 #endif
             }
         }
+
+        internal override void UpdateTabIndex(bool isTabStop, int tabIndex)
+        {
+            // we don't do anything since TextBlock is not supposed to be a Control in the first place
+            // and it is not supposed to be counted in tabbing
+            return;
+        }
 #if WORKINPROGRESS
 
         // There is an implementation for TextTrimming in the shelvesheets

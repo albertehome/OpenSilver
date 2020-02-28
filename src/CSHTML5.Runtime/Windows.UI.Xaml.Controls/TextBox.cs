@@ -64,7 +64,7 @@ namespace Windows.UI.Xaml.Controls
         /// <summary>
         /// The name of the ExpanderButton template part.
         /// </summary>
-        private string[] TextAreaContainerNames = { "ContentElement", "PART_ContentHost" };
+        private readonly string[] TextAreaContainerNames = { "ContentElement", "PART_ContentHost" };
         //                                                  Sl & UWP                WPF
 
         //static TextBox()
@@ -98,6 +98,11 @@ namespace Windows.UI.Xaml.Controls
         public TextBox()
         {
             UseSystemFocusVisuals = true;
+        }
+
+        internal sealed override bool INTERNAL_GetFocusInBrowser
+        {
+            get { return true; }
         }
 
         #region AcceptsReturn
