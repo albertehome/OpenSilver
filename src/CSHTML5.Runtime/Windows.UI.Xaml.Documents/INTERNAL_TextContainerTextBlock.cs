@@ -70,7 +70,11 @@ namespace Windows.UI.Xaml.Documents
         {
             if (INTERNAL_VisualTreeManager.IsElementInVisualTree(this.TextBlock))
             {
+#if REWORKLOADED
+                this.TextBlock.AddVisualChild(textElement);
+#else
                 INTERNAL_VisualTreeManager.AttachVisualChildIfNotAlreadyAttached(textElement, this.TextBlock);
+#endif
             }
         }
 
@@ -81,6 +85,6 @@ namespace Windows.UI.Xaml.Documents
                 INTERNAL_VisualTreeManager.DetachVisualChildIfNotNull(textElement, this.TextBlock);
             }
         }
-        #endregion
+#endregion
     }
 }

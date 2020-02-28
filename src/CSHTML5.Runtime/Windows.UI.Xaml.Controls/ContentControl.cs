@@ -113,6 +113,7 @@ namespace Windows.UI.Xaml.Controls
 
         protected internal override void INTERNAL_OnAttachedToVisualTree()
         {
+            base.INTERNAL_OnAttachedToVisualTree();
             if (this.HasTemplate)
             {
                 return;
@@ -151,7 +152,11 @@ namespace Windows.UI.Xaml.Controls
             UIElement newChildAsUIElement = newChild as UIElement;
             if(newChildAsUIElement != null)
             {
+#if REWORKLOADED
+                this.AddVisualChild(newChildAsUIElement);
+#else
                 INTERNAL_VisualTreeManager.AttachVisualChildIfNotAlreadyAttached(newChildAsUIElement, this);
+#endif
                 this.Child = newChildAsUIElement;
             }
             else
@@ -195,6 +200,6 @@ namespace Windows.UI.Xaml.Controls
             }
             contentControl.ApplyContentTemplate((DataTemplate)e.NewValue);
         }
-        #endregion
+#endregion
     }
 }

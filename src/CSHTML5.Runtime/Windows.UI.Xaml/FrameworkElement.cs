@@ -755,5 +755,13 @@ namespace Windows.UI.Xaml
             set { this.SetValue(LanguageProperty, value); }
         }
 #endif
+
+#if REWORKLOADED
+        internal override void INTERNAL_OnVisualParentChanged()
+        {
+            this.INTERNAL_SizeChangedWhenAttachedToVisualTree(); // Raise SizeChanged event
+            this.INTERNAL_RaiseLoadedEvent(); // Raise Loaded event
+        }
+#endif
     }
 }
