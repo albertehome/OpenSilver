@@ -55,7 +55,7 @@ namespace Windows.UI.Xaml.Media
         /// Identifies the Point1 dependency property.
         /// </summary>
         public static readonly DependencyProperty Point1Property =
-            DependencyProperty.Register("Point1", typeof(Point), typeof(QuadraticBezierSegment), new PropertyMetadata(new Point(), Point1_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Point1", typeof(Point), typeof(QuadraticBezierSegment), new PropertyMetadata(new Point(), Point1_Changed));
 
         private static void Point1_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -78,7 +78,7 @@ namespace Windows.UI.Xaml.Media
         /// Identifies the Point2 dependency property.
         /// </summary>
         public static readonly DependencyProperty Point2Property =
-            DependencyProperty.Register("Point2", typeof(Point), typeof(QuadraticBezierSegment), new PropertyMetadata(new Point(), Point2_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Point2", typeof(Point), typeof(QuadraticBezierSegment), new PropertyMetadata(new Point(), Point2_Changed));
 
         private static void Point2_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

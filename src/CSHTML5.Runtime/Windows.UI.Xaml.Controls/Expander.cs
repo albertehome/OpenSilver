@@ -96,7 +96,8 @@ namespace Windows.UI.Xaml.Controls
                         "IsExpanded",
                         typeof(bool),
                         typeof(Expander),
-                        new PropertyMetadata(false, OnIsExpandedPropertyChanged));
+                        new PropertyMetadata(false, OnIsExpandedPropertyChanged)
+                        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
 
         /// <summary>

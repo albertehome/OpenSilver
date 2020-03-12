@@ -49,7 +49,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
         /// Identifies the LargeChange dependency property.
         /// </summary>
         public static readonly DependencyProperty LargeChangeProperty =
-            DependencyProperty.Register("LargeChange", typeof(double), typeof(RangeBase), new PropertyMetadata(1d) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("LargeChange", typeof(double), typeof(RangeBase), new PropertyMetadata(1d));
 
 
 
@@ -66,7 +66,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
         /// Identifies the Maximum dependency property.
         /// </summary>
         public static readonly DependencyProperty MaximumProperty =
-            DependencyProperty.Register("Maximum", typeof(double), typeof(RangeBase), new PropertyMetadata(1d, Maximum_Changed) { CoerceValueCallback = CoerceMaximum, CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Maximum", typeof(double), typeof(RangeBase), new PropertyMetadata(1d, Maximum_Changed, CoerceMaximum));
 
         private static object CoerceMaximum(DependencyObject d, object baseValue)
         {
@@ -106,7 +106,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
         /// Identifies the Minimum dependency property.
         /// </summary>
         public static readonly DependencyProperty MinimumProperty =
-            DependencyProperty.Register("Minimum", typeof(double), typeof(RangeBase), new PropertyMetadata(0d, Minimum_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Minimum", typeof(double), typeof(RangeBase), new PropertyMetadata(0d, Minimum_Changed));
 
         private static void Minimum_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -136,7 +136,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
         /// The identifier for the SmallChange dependency property.
         /// </summary>
         public static readonly DependencyProperty SmallChangeProperty =
-            DependencyProperty.Register("SmallChange", typeof(double), typeof(RangeBase), new PropertyMetadata(0.1d) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("SmallChange", typeof(double), typeof(RangeBase), new PropertyMetadata(0.1d));
 
 
 
@@ -153,7 +153,7 @@ namespace Windows.UI.Xaml.Controls.Primitives
         /// The identifier for the Value dependency property.
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(double), typeof(RangeBase), new PropertyMetadata(0d, Value_Changed) { CoerceValueCallback = CoerceValue, CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Value", typeof(double), typeof(RangeBase), new PropertyMetadata(0d, Value_Changed, CoerceValue));
 
         private static object CoerceValue(DependencyObject d, object baseValue)
         {

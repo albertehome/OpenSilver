@@ -81,7 +81,8 @@ namespace Windows.UI.Xaml.Controls
                     {
                         return null;
                     }
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             }
             );
 
@@ -111,7 +112,8 @@ namespace Windows.UI.Xaml.Controls
                     {
                         return null;
                     }
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             }
             );
 
@@ -133,7 +135,8 @@ namespace Windows.UI.Xaml.Controls
                         DomElement = ((UIElement)instance).INTERNAL_AdditionalOutsideDivForMargins,
                         ApplyAlsoWhenThereIsAControlTemplate = true
                     };
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             }
             );
 

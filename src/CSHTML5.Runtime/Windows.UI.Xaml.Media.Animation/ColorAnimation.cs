@@ -54,7 +54,8 @@ namespace Windows.UI.Xaml.Media.Animation
         /// Identifies the EasingFunction dependency property.
         /// </summary>
         public static readonly DependencyProperty EasingFunctionProperty =
-            DependencyProperty.Register("EasingFunction", typeof(EasingFunctionBase), typeof(ColorAnimation), new PropertyMetadata(null));
+            DependencyProperty.Register("EasingFunction", typeof(EasingFunctionBase), typeof(ColorAnimation), new PropertyMetadata(null)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Gets or sets the animation's starting value.
@@ -68,7 +69,8 @@ namespace Windows.UI.Xaml.Media.Animation
         /// Identifies the From dependency property.
         /// </summary>
         public static readonly DependencyProperty FromProperty =
-            DependencyProperty.Register("From", typeof(Color?), typeof(ColorAnimation), new PropertyMetadata(null));
+            DependencyProperty.Register("From", typeof(Color?), typeof(ColorAnimation), new PropertyMetadata(null)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Gets or sets the animation's ending value.
@@ -82,7 +84,8 @@ namespace Windows.UI.Xaml.Media.Animation
         /// Identifies the To dependency property.
         /// </summary>
         public static readonly DependencyProperty ToProperty =
-            DependencyProperty.Register("To", typeof(Color?), typeof(ColorAnimation), new PropertyMetadata(null));
+            DependencyProperty.Register("To", typeof(Color?), typeof(ColorAnimation), new PropertyMetadata(null)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         internal override void GetTargetInformation(IterationParameters parameters)
         {

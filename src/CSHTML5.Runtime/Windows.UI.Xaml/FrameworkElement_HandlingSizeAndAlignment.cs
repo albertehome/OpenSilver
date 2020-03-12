@@ -127,7 +127,8 @@ namespace Windows.UI.Xaml
                         Name = new List<string> { "height" },
                         ApplyAlsoWhenThereIsAControlTemplate = true
                     };
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private static void Height_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -214,7 +215,8 @@ namespace Windows.UI.Xaml
                         Name = new List<string> { "width" },
                         ApplyAlsoWhenThereIsAControlTemplate = true
                     };
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
         internal static void Width_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -1064,7 +1066,8 @@ if ($0.tagName.toLowerCase() != 'span')
         /// Identifies the Margin dependency property.
         /// </summary>
         public static readonly DependencyProperty MarginProperty =
-            DependencyProperty.Register("Margin", typeof(Thickness), typeof(FrameworkElement), new PropertyMetadata(new Thickness()) { MethodToUpdateDom = Margin_MethodToUpdateDom });
+            DependencyProperty.Register("Margin", typeof(Thickness), typeof(FrameworkElement), new PropertyMetadata(new Thickness()) { MethodToUpdateDom = Margin_MethodToUpdateDom,
+            CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         internal static void Margin_MethodToUpdateDom(DependencyObject d, object newValue)
         {
@@ -1189,7 +1192,8 @@ if ($0.tagName.toLowerCase() != 'span')
         /// Identifies the MinHeight dependency property.
         /// </summary>
         public static readonly DependencyProperty MinHeightProperty =
-            DependencyProperty.Register("MinHeight", typeof(double), typeof(FrameworkElement), new PropertyMetadata(0d, MinHeight_Changed));
+            DependencyProperty.Register("MinHeight", typeof(double), typeof(FrameworkElement), new PropertyMetadata(0d, MinHeight_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void MinHeight_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -1225,7 +1229,8 @@ if ($0.tagName.toLowerCase() != 'span')
         /// Identifies the MinWidth dependency property.
         /// </summary>
         public static readonly DependencyProperty MinWidthProperty =
-            DependencyProperty.Register("MinWidth", typeof(double), typeof(FrameworkElement), new PropertyMetadata(0d, MinWidth_Changed));
+            DependencyProperty.Register("MinWidth", typeof(double), typeof(FrameworkElement), new PropertyMetadata(0d, MinWidth_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void MinWidth_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -1258,7 +1263,8 @@ if ($0.tagName.toLowerCase() != 'span')
         /// Identifies the MaxHeight dependency property.
         /// </summary>
         public static readonly DependencyProperty MaxHeightProperty =
-            DependencyProperty.Register("MaxHeight", typeof(double), typeof(FrameworkElement), new PropertyMetadata(double.PositiveInfinity, MaxHeight_Changed));
+            DependencyProperty.Register("MaxHeight", typeof(double), typeof(FrameworkElement), new PropertyMetadata(double.PositiveInfinity, MaxHeight_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void MaxHeight_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -1294,7 +1300,8 @@ if ($0.tagName.toLowerCase() != 'span')
         /// Identifies the MaxWidth dependency property.
         /// </summary>
         public static readonly DependencyProperty MaxWidthProperty =
-            DependencyProperty.Register("MaxWidth", typeof(double), typeof(FrameworkElement), new PropertyMetadata(double.PositiveInfinity, MaxWidth_Changed));
+            DependencyProperty.Register("MaxWidth", typeof(double), typeof(FrameworkElement), new PropertyMetadata(double.PositiveInfinity, MaxWidth_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void MaxWidth_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -1538,7 +1545,8 @@ if ($0.tagName.toLowerCase() != 'span')
         /// Identifies the ContextMenu dependency property.
         /// </summary>
         public static readonly DependencyProperty ContextMenuProperty =
-            DependencyProperty.Register("ContextMenu", typeof(ContextMenu), typeof(FrameworkElement), new PropertyMetadata(null, ContextMenu_Changed));
+            DependencyProperty.Register("ContextMenu", typeof(ContextMenu), typeof(FrameworkElement), new PropertyMetadata(null, ContextMenu_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void ContextMenu_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

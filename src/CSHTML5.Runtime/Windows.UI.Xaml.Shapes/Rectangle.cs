@@ -55,7 +55,8 @@ namespace Windows.UI.Xaml.Shapes
     {
         static Rectangle()
         {
-            Shape.StretchProperty.OverrideMetadata(typeof(Rectangle), new PropertyMetadata(Stretch.Fill, Shape.Stretch_Changed));
+            Shape.StretchProperty.OverrideMetadata(typeof(Rectangle), new PropertyMetadata(Stretch.Fill, Shape.Stretch_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
         }
 
         #region former implementation
@@ -208,7 +209,8 @@ namespace Windows.UI.Xaml.Shapes
         //
         // Returns:
         //     The identifier for the RadiusX dependency property.
-        public static readonly DependencyProperty RadiusXProperty = DependencyProperty.Register("RadiusX", typeof(double), typeof(Rectangle), new PropertyMetadata(0d));
+        public static readonly DependencyProperty RadiusXProperty = DependencyProperty.Register("RadiusX", typeof(double), typeof(Rectangle), new PropertyMetadata(0d)
+        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
         //
         // Summary:
         //     Gets or sets the y-axis radius of the ellipse that is used to round the corners
@@ -228,7 +230,8 @@ namespace Windows.UI.Xaml.Shapes
         //
         // Returns:
         //     The identifier for the RadiusY dependency property.
-        public static readonly DependencyProperty RadiusYProperty = DependencyProperty.Register("RadiusY", typeof(double), typeof(Rectangle), new PropertyMetadata(0d));
+        public static readonly DependencyProperty RadiusYProperty = DependencyProperty.Register("RadiusY", typeof(double), typeof(Rectangle), new PropertyMetadata(0d)
+        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
         #endregion
 #endif
     }

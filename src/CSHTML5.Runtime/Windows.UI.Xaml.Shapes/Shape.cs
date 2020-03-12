@@ -116,7 +116,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the Fill dependency property.
         /// </summary>
         public static readonly DependencyProperty FillProperty =
-            DependencyProperty.Register("Fill", typeof(Brush), typeof(Shape), new PropertyMetadata(null, Fill_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Fill", typeof(Brush), typeof(Shape), new PropertyMetadata(null, Fill_Changed));
         static void Fill_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var shape = (Shape)d;
@@ -149,7 +149,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the Stretch dependency property.
         /// </summary>
         public static readonly DependencyProperty StretchProperty =
-            DependencyProperty.Register("Stretch", typeof(Stretch), typeof(Shape), new PropertyMetadata(Stretch.None, Stretch_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Stretch", typeof(Stretch), typeof(Shape), new PropertyMetadata(Stretch.None, Stretch_Changed));
         internal protected static void Stretch_Changed(DependencyObject i, DependencyPropertyChangedEventArgs e)
         {
             //note: Stretch is actually more implemented in the Redraw method of the classes that inherit from shape (Line, Ellipse, Path, Rectangle)
@@ -220,7 +220,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the Stroke dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeProperty =
-            DependencyProperty.Register("Stroke", typeof(Brush), typeof(Shape), new PropertyMetadata(null, Stroke_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("Stroke", typeof(Brush), typeof(Shape), new PropertyMetadata(null, Stroke_Changed));
 
         private static void Stroke_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -245,7 +245,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the StrokeThickness dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeThicknessProperty =
-            DependencyProperty.Register("StrokeThickness", typeof(double), typeof(Shape), new PropertyMetadata(1d, StrokeThickness_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeThickness", typeof(double), typeof(Shape), new PropertyMetadata(1d, StrokeThickness_Changed));
 
         private static void StrokeThickness_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -347,7 +347,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the StrokeStartLineCap dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeStartLineCapProperty =
-            DependencyProperty.Register("StrokeStartLineCap", typeof(PenLineCap), typeof(Shape), new PropertyMetadata(PenLineCap.Flat) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeStartLineCap", typeof(PenLineCap), typeof(Shape), new PropertyMetadata(PenLineCap.Flat));
 
         /// <summary>
         /// Gets or sets a PenLineCap enumeration value that describes the Shape at the
@@ -363,7 +363,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the StrokeEndLineCap dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeEndLineCapProperty =
-            DependencyProperty.Register("StrokeEndLineCap", typeof(PenLineCap), typeof(Shape), new PropertyMetadata(PenLineCap.Flat) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeEndLineCap", typeof(PenLineCap), typeof(Shape), new PropertyMetadata(PenLineCap.Flat));
 
 
         /// <summary>
@@ -380,7 +380,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the StrokeLineJoin dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeLineJoinProperty =
-            DependencyProperty.Register("StrokeLineJoin", typeof(PenLineJoin), typeof(Shape), new PropertyMetadata(PenLineJoin.Miter) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeLineJoin", typeof(PenLineJoin), typeof(Shape), new PropertyMetadata(PenLineJoin.Miter));
 
 
 
@@ -399,7 +399,7 @@ namespace Windows.UI.Xaml.Shapes
         /// Identifies the StrokeMiterLimit dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeMiterLimitProperty =
-            DependencyProperty.Register("StrokeMiterLimit", typeof(double), typeof(Shape), new PropertyMetadata(0d) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeMiterLimit", typeof(double), typeof(Shape), new PropertyMetadata(0d));
 
         internal static void GetShapeInfos(Shape shape, out double xOffsetToApplyBeforeMultiplication, out double yOffsetToApplyBeforeMultiplication, out double xOffsetToApplyAfterMultiplication, out double yOffsetToApplyAfterMultiplication, out double sizeX, out double sizeY, out double horizontalMultiplicator, out double verticalMultiplicator, out Size shapeActualSize)
         {
@@ -883,7 +883,7 @@ context.restore();
         /// Identifies the StrokeDashArray dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeDashArrayProperty =
-            DependencyProperty.Register("StrokeDashArray", typeof(DoubleCollection), typeof(Shape), new PropertyMetadata(null, StrokeDashArray_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeDashArray", typeof(DoubleCollection), typeof(Shape), new PropertyMetadata(null, StrokeDashArray_Changed));
 
         private static void StrokeDashArray_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -926,7 +926,7 @@ context.restore();
         /// Identifies the StrokeDashOffset dependency property.
         /// </summary>
         public static readonly DependencyProperty StrokeDashOffsetProperty =
-            DependencyProperty.Register("StrokeDashOffset", typeof(double), typeof(Shape), new PropertyMetadata(0d, StrokeDashOffset_Changed) { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.Never });
+            DependencyProperty.Register("StrokeDashOffset", typeof(double), typeof(Shape), new PropertyMetadata(0d, StrokeDashOffset_Changed));
 
         private static void StrokeDashOffset_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -996,7 +996,8 @@ context.restore();
         //
         // Returns:
         //     The identifier for the StrokeDashCap dependency property.
-        public static readonly DependencyProperty StrokeDashCapProperty = DependencyProperty.Register("StrokeDashCap", typeof(PenLineCap), typeof(Shape), new PropertyMetadata(PenLineCap.Flat));
+        public static readonly DependencyProperty StrokeDashCapProperty = DependencyProperty.Register("StrokeDashCap", typeof(PenLineCap), typeof(Shape), new PropertyMetadata(PenLineCap.Flat)
+        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
         
         
         #endregion

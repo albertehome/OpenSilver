@@ -113,7 +113,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the Source dependency property.
         /// </summary>
         public static readonly DependencyProperty SourceProperty =
-            DependencyProperty.Register("Source", typeof(ImageSource), typeof(Image), new PropertyMetadata(null, Source_Changed));
+            DependencyProperty.Register("Source", typeof(ImageSource), typeof(Image), new PropertyMetadata(null, Source_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
 
         static void Source_Changed(DependencyObject i, DependencyPropertyChangedEventArgs e)
@@ -268,7 +269,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the Stretch dependency property
         /// </summary>
         public static readonly DependencyProperty StretchProperty =
-            DependencyProperty.Register("Stretch", typeof(Stretch), typeof(Image), new PropertyMetadata(Stretch.Uniform, Stretch_Changed));
+            DependencyProperty.Register("Stretch", typeof(Stretch), typeof(Image), new PropertyMetadata(Stretch.Uniform, Stretch_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
 
         static void Stretch_Changed(DependencyObject i, DependencyPropertyChangedEventArgs e)

@@ -131,7 +131,8 @@ namespace Windows.UI.Xaml.Controls
                     {
                         Name = new List<string> { "background", "backgroundColor", "backgroundColorAlpha" },
                     };
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             }
             );
 

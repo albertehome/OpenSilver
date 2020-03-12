@@ -126,7 +126,8 @@ namespace Windows.UI.Xaml.Media.Imaging
         /// 
         /// Returns the identifier for the PixelHeight dependency property.
         /// </summary>
-        public static readonly DependencyProperty PixelHeightProperty = DependencyProperty.Register("PixelHeight", typeof(int), typeof(BitmapSource), new PropertyMetadata(0));
+        public static readonly DependencyProperty PixelHeightProperty = DependencyProperty.Register("PixelHeight", typeof(int), typeof(BitmapSource), new PropertyMetadata(0)
+        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Gets the width of the bitmap in pixels.
@@ -141,7 +142,8 @@ namespace Windows.UI.Xaml.Media.Imaging
         /// 
         /// Returns the identifier for the PixelWidth dependency property.
         /// </summary>
-        public static readonly DependencyProperty PixelWidthProperty = DependencyProperty.Register("PixelWidth", typeof(int), typeof(BitmapSource), new PropertyMetadata(0));
+        public static readonly DependencyProperty PixelWidthProperty = DependencyProperty.Register("PixelWidth", typeof(int), typeof(BitmapSource), new PropertyMetadata(0)
+        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
         
         
         ////

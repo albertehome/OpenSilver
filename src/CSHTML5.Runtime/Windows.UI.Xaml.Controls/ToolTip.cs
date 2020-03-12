@@ -73,7 +73,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the IsOpen dependency property.
         /// </summary>
         public static readonly DependencyProperty IsOpenProperty =
-            DependencyProperty.Register("IsOpen", typeof(bool), typeof(ToolTip), new PropertyMetadata(false, IsOpen_Changed));
+            DependencyProperty.Register("IsOpen", typeof(bool), typeof(ToolTip), new PropertyMetadata(false, IsOpen_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void IsOpen_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -271,7 +272,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the HorizontalOffset dependency property.
         /// </summary>
         public static readonly DependencyProperty HorizontalOffsetProperty =
-            DependencyProperty.Register("HorizontalOffset", typeof(double), typeof(ToolTip), new PropertyMetadata(0d));
+            DependencyProperty.Register("HorizontalOffset", typeof(double), typeof(ToolTip), new PropertyMetadata(0d)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
 
         //-----------------------
@@ -290,7 +292,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the VerticalOffset dependency property.
         /// </summary>
         public static readonly DependencyProperty VerticalOffsetProperty =
-            DependencyProperty.Register("VerticalOffset", typeof(double), typeof(ToolTip), new PropertyMetadata(0d));
+            DependencyProperty.Register("VerticalOffset", typeof(double), typeof(ToolTip), new PropertyMetadata(0d)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
     }
 }

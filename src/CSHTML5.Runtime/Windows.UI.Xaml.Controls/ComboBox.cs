@@ -528,7 +528,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the IsDropDownOpen dependency property.
         /// </summary>
         public static readonly DependencyProperty IsDropDownOpenProperty =
-            DependencyProperty.Register("IsDropDownOpen", typeof(bool), typeof(ComboBox), new PropertyMetadata(false, IsDropDownOpen_Changed));
+            DependencyProperty.Register("IsDropDownOpen", typeof(bool), typeof(ComboBox), new PropertyMetadata(false, IsDropDownOpen_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         private static void IsDropDownOpen_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -631,7 +632,8 @@ namespace Windows.UI.Xaml.Controls
         /// Identifies the MaxDropDownHeight dependency property.
         /// </summary>
         public static readonly DependencyProperty MaxDropDownHeightProperty =
-            DependencyProperty.Register("MaxDropDownHeight", typeof(double), typeof(ComboBox), new PropertyMetadata(200d));
+            DependencyProperty.Register("MaxDropDownHeight", typeof(double), typeof(ComboBox), new PropertyMetadata(200d)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         void Popup_ClosedDueToOutsideClick(object sender, EventArgs e)
         {

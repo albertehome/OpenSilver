@@ -73,7 +73,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
 
@@ -111,7 +112,8 @@ namespace Windows.UI.Xaml.Media
                             };
                         }
                         return null;
-                    }
+                    },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private void ApplyCSSChanges(ScaleTransform scaleTransform, double scaleX, double scaleY)

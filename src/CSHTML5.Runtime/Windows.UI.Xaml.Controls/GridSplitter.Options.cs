@@ -59,7 +59,8 @@ namespace Windows.UI.Xaml.Controls
                 "Element",
                 typeof(UIElement),
                 typeof(GridSplitter),
-                new PropertyMetadata(default(UIElement)));
+                new PropertyMetadata(null)
+                { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Identifies the <see cref="ResizeDirection"/> dependency property.
@@ -69,7 +70,8 @@ namespace Windows.UI.Xaml.Controls
                 "ResizeDirection",
                 typeof(GridResizeDirection),
                 typeof(GridSplitter),
-                new PropertyMetadata(GridResizeDirection.Auto));
+                new PropertyMetadata(GridResizeDirection.Auto)
+                { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Identifies the <see cref="ResizeBehavior"/> dependency property.
@@ -79,7 +81,8 @@ namespace Windows.UI.Xaml.Controls
                 "ResizeBehavior",
                 typeof(GridResizeBehavior),
                 typeof(GridSplitter),
-                new PropertyMetadata(GridResizeBehavior.BasedOnAlignment));
+                new PropertyMetadata(GridResizeBehavior.BasedOnAlignment)
+                { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Identifies the <see cref="GripperForeground"/> dependency property.
@@ -89,7 +92,8 @@ namespace Windows.UI.Xaml.Controls
                 "GripperForeground",
                 typeof(Brush),
                 typeof(GridSplitter),
-                new PropertyMetadata(default(Brush), OnGripperForegroundPropertyChanged));
+                new PropertyMetadata(null, OnGripperForegroundPropertyChanged)
+                { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Identifies the <see cref="ParentLevel"/> dependency property.
@@ -99,7 +103,8 @@ namespace Windows.UI.Xaml.Controls
                 "ParentLevel",
                 typeof(int),
                 typeof(GridSplitter),
-                new PropertyMetadata(default(int)));
+                new PropertyMetadata(0)
+                { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Identifies the <see cref="GripperCursor"/> dependency property.
@@ -109,7 +114,8 @@ namespace Windows.UI.Xaml.Controls
                 "GripperCursor",
                 typeof(GripperCursorType), //typeof(CoreCursorType?),
                 typeof(GridSplitter),
-                new PropertyMetadata(GripperCursorType.Default, OnGripperCursorPropertyChanged));
+                new PropertyMetadata(GripperCursorType.Default, OnGripperCursorPropertyChanged)
+                { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// Identifies the <see cref="GripperCustomCursorResource"/> dependency property.

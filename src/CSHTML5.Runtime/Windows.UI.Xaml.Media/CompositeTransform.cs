@@ -70,7 +70,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private static void ScaleX_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -114,7 +115,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private static void ScaleY_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -160,7 +162,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private static void SkewX_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -204,7 +207,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private static void SkewY_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -245,7 +249,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
         private static void Rotation_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -286,7 +291,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
         private static void TranslateX_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -328,7 +334,8 @@ namespace Windows.UI.Xaml.Media
                         };
                     }
                     return null;
-                }
+                },
+                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
         private static void TranslateY_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

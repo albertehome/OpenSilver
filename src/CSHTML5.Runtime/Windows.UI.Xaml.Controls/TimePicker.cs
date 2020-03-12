@@ -108,7 +108,8 @@ namespace Windows.UI.Xaml.Controls
             "Value",
             typeof(DateTime?),
             typeof(TimePicker),
-            new PropertyMetadata(OnValueChanged));
+            new PropertyMetadata(OnValueChanged)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// SelectedDateProperty property changed handler.

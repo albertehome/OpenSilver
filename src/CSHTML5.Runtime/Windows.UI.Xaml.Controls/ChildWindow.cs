@@ -143,7 +143,8 @@ namespace Windows.UI.Xaml.Controls
             "HasCloseButton",
             typeof(bool),
             typeof(ChildWindow),
-            new PropertyMetadata(true, OnHasCloseButtonPropertyChanged));
+            new PropertyMetadata(true, OnHasCloseButtonPropertyChanged)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// HasCloseButtonProperty PropertyChangedCallback call back static function.
@@ -199,7 +200,8 @@ namespace Windows.UI.Xaml.Controls
             "OverlayBrush",
             typeof(Brush),
             typeof(ChildWindow),
-            new PropertyMetadata(OnOverlayBrushPropertyChanged));
+            new PropertyMetadata(OnOverlayBrushPropertyChanged)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// OverlayBrushProperty PropertyChangedCallback call back static function.
@@ -248,7 +250,8 @@ namespace Windows.UI.Xaml.Controls
             "OverlayOpacity",
             typeof(double),
             typeof(ChildWindow),
-            new PropertyMetadata(OnOverlayOpacityPropertyChanged));
+            new PropertyMetadata(OnOverlayOpacityPropertyChanged)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         /// <summary>
         /// OverlayOpacityProperty PropertyChangedCallback call back static function.

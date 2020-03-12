@@ -269,7 +269,8 @@ namespace Windows.UI.Xaml
         /// Identifies the Content dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(FrameworkElement), typeof(Window), new PropertyMetadata(null, Content_Changed));
+            DependencyProperty.Register("Content", typeof(FrameworkElement), typeof(Window), new PropertyMetadata(null, Content_Changed)
+            { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         static internal void Content_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -289,7 +290,8 @@ namespace Windows.UI.Xaml
         /// Identifies the Content dependency property.
         /// </summary>
         public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(object), typeof(Window), new PropertyMetadata(null, Content_Changed));
+            DependencyProperty.Register("Content", typeof(object), typeof(Window), new PropertyMetadata(null, Content_Changed)
+        { CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
 
         static internal void Content_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
