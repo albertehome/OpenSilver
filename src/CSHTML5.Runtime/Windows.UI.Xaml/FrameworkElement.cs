@@ -263,8 +263,7 @@ namespace Windows.UI.Xaml
         /// Identifies the IsEnabled dependency property.
         /// </summary>
         public static readonly DependencyProperty IsEnabledProperty =
-            DependencyProperty.Register("IsEnabled", typeof(bool), typeof(FrameworkElement), new PropertyMetadata(true, IsEnabled_Changed) { MethodToUpdateDom = IsEnabled_MethodToUpdateDom, Inherits = true,
-            CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet });
+            DependencyProperty.Register("IsEnabled", typeof(bool), typeof(FrameworkElement), new PropertyMetadata(true, IsEnabled_Changed) { MethodToUpdateDom = IsEnabled_MethodToUpdateDom, Inherits = true });
 
 
 
@@ -381,7 +380,7 @@ namespace Windows.UI.Xaml
         /// </summary>
         public static readonly DependencyProperty DataContextProperty =
             DependencyProperty.Register("DataContext", typeof(object), typeof(FrameworkElement), new PropertyMetadata() { Inherits = true,
-                CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
+                //CallPropertyChangedWhenLoadedIntoVisualTree = WhenToCallPropertyChangedEnum.IfPropertyIsSet
             });
 
 #endregion

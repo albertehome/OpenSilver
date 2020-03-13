@@ -92,12 +92,14 @@ namespace Windows.UI.Xaml
 //          var t = Performance.now();
 //#endif
             var storage = INTERNAL_PropertyStore.GetStorageIfExists(this, dependencyProperty);
-            PropertyMetadata typeMetadata = dependencyProperty.GetTypeMetaData(this.GetType());
-            var tmp = INTERNAL_PropertyStore.GetValue(storage, typeMetadata);
+            if (storage == null)
+            {
+                return dependencyProperty.GetTypeMetaData(this.GetType()).DefaultValue;
+            }
+            return storage.ActualValue;
 //#if PERFSTAT
 //          Performance.Counter("DependencyObject.GetValue [" + dependencyProperty.Name + "]", t);
 //#endif
-            return tmp;
         }
 
         /// <summary>
@@ -150,8 +152,11 @@ namespace Windows.UI.Xaml
                 throw new ArgumentNullException("No property specified");
 
             var storage = INTERNAL_PropertyStore.GetStorageIfExists(this, dependencyProperty);
-            PropertyMetadata typeMetadata = dependencyProperty.GetTypeMetaData(this.GetType());
-            return INTERNAL_PropertyStore.GetValue(storage, typeMetadata);
+            if (storage == null)
+            { 
+                return dependencyProperty.GetTypeMetaData(this.GetType()).DefaultValue;
+            }
+            return storage.VisualStateValue;
         }
 
         public void SetVisualStateValue(DependencyProperty dependencyProperty, object value)
@@ -178,8 +183,11 @@ namespace Windows.UI.Xaml
                 throw new ArgumentNullException("No property specified");
 
             var storage = INTERNAL_PropertyStore.GetStorageIfExists(this, dependencyProperty);
-            PropertyMetadata typeMetadata = dependencyProperty.GetTypeMetaData(this.GetType());
-            return INTERNAL_PropertyStore.GetValue(storage, typeMetadata);
+            if (storage == null)
+            {
+                return dependencyProperty.GetTypeMetaData(this.GetType()).DefaultValue;
+            }
+            return storage.AnimationValue;
         }
 
         /// <summary>

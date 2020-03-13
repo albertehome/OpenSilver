@@ -806,7 +806,7 @@ namespace CSHTML5.Internal
                         {
                             if (!valueWasRetrieved)
                             {
-                                value = INTERNAL_PropertyStore.GetValue(storage, propertyMetadata);
+                                value = storage.ActualValue;
                                 valueWasRetrieved = true;
                             }
 
@@ -820,7 +820,7 @@ namespace CSHTML5.Internal
                         {
                             if (!valueWasRetrieved)
                             {
-                                value = INTERNAL_PropertyStore.GetValue(storage, propertyMetadata);
+                                value = storage.ActualValue;
                                 valueWasRetrieved = true;
                             }
 
@@ -844,7 +844,7 @@ namespace CSHTML5.Internal
                         {
                             if (!valueWasRetrieved)
                             {
-                                value = INTERNAL_PropertyStore.GetValue(storage, propertyMetadata);
+                                value = storage.ActualValue;
                                 valueWasRetrieved = true;
                             }
 
