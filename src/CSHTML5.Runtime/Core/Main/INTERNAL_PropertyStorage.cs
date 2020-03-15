@@ -163,10 +163,18 @@ namespace CSHTML5.Internal
         /// <returns>returns true if the actual value is impacted, false otherwise</returns>
         public bool SetValue(object value, KindOfValue kind, out object oldValue)
         {
-            bool impactsValue = this.DoesSpecificValueImpactActualValue(kind);
-            oldValue = impactsValue ? this.ActualValue : null;
+            bool impactsActualValue = this.DoesSpecificValueImpactActualValue(kind);
+            oldValue = impactsActualValue ? this.ActualValue : null;
             this.SetValue(value, kind);
-            return impactsValue;
+            return impactsActualValue;
+        }
+
+        public bool SetInheritedValue(object value, out object oldValue)
+        {
+            bool impactsActualValue = this.DoesSpecificValueImpactActualValue(KindOfValue.Inherited);
+            oldValue = impactsActualValue ? this.ActualValue : null;
+            this.InheritedValue = value;
+            return impactsActualValue;
         }
 
         internal class INTERNAL_LocalValue

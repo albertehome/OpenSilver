@@ -531,8 +531,8 @@ namespace Windows.UI.Xaml
                     {
                         if (!newStyleDictionary.ContainsKey(oldSetter.Property)) // only handle this property here if it is not going set by the new style
                         {
-                            INTERNAL_PropertyStorage storage = INTERNAL_PropertyStore.GetStorageIfExists(d, oldSetter.Property);
-                            if (storage != null)
+                            INTERNAL_PropertyStorage storage;
+                            if (INTERNAL_PropertyStore.TryGetStorage(d, oldSetter.Property, false/*don't create*/, out storage))
                             {
                                 INTERNAL_PropertyStore.ResetLocalStyleValue(storage, true);
                             }
@@ -555,7 +555,8 @@ namespace Windows.UI.Xaml
                     {
                         if (!oldStyleDictionary.ContainsKey(newSetter.Property) || oldStyleDictionary[newSetter.Property] != newSetter.Value)
                         {
-                            INTERNAL_PropertyStorage storage = INTERNAL_PropertyStore.GetStorageOrCreateNewIfNotExists(frameworkElement, newSetter.Property);
+                            INTERNAL_PropertyStorage storage;
+                            INTERNAL_PropertyStore.TryGetStorage(frameworkElement, newSetter.Property, true/*create*/, out storage);
                             INTERNAL_PropertyStore.SetLocalStyleValue(storage, newSetter.Value);
                         }
                     }
@@ -596,7 +597,8 @@ namespace Windows.UI.Xaml
             Setter setter = (Setter)sender;
             if (setter.Property != null) // Note: it can be null for example in the XAML text editor during design time, because the "DependencyPropertyConverter" class returns "null".
             {
-                INTERNAL_PropertyStorage storage = INTERNAL_PropertyStore.GetStorageOrCreateNewIfNotExists(this, setter.Property);
+                INTERNAL_PropertyStorage storage;
+                INTERNAL_PropertyStore.TryGetStorage(this, setter.Property, true/*create*/, out storage);
                 HashSet2<Style> stylesAlreadyVisited = new HashSet2<Style>(); // Note: "stylesAlreadyVisited" is here to prevent an infinite recursion.
                 INTERNAL_PropertyStore.SetLocalStyleValue(storage, Style.GetActiveValue(setter.Property, stylesAlreadyVisited));
             }
